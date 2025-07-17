@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Celebrations - Premium Food Selection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="Birthday-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter bg-gray-50 min-h-screen">
+
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <span class="text-2xl font-playfair font-semibold text-gray-800">Birthday Celebrations</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-rose-600 transition-colors font-medium">Home</a>
+                    <a href="#menu" class="text-gray-600 hover:text-rose-600 transition-colors font-medium">Menu</a>
+                    <a href="#services" class="text-gray-600 hover:text-rose-600 transition-colors font-medium">Services</a>
+                    <a href="#contact" class="text-gray-600 hover:text-rose-600 transition-colors font-medium">Contact</a>
+                </div>
+                <a href="chatbot2.html" target="_blank" class="bg-rose-600 hover:bg-rose-700 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+                   Chat Bot
+                         </a>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <section id="home" class="pt-24 pb-20 px-4 bg-gradient-to-br from-rose-50 to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-6xl font-playfair font-bold text-gray-800 mb-6 leading-tight">
+                    Curated Food Selection for 
+                    <span class="text-rose-600">Memorable Birthdays</span>
+                </h1>
+                <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+                    Discover our carefully selected menu of premium food options that will make your birthday celebration truly exceptional and unforgettable.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button id="view-menu-btn" class="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+                        View Menu Selection
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+    <section id="menu" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-4">
+                    Premium Birthday Menu
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Our expertly curated selection of foods that have consistently delighted guests at birthday celebrations
+                </p>
+            </div>
+
+    
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="food-grid">
+          
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-20 px-4 bg-gradient-to-br from-rose-50 to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-4">
+                    Featured Food Displays
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Professionally styled food presentations that create memorable birthday experiences
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+           
+                <div class="featured-display">
+                    <div class="image-container-large">
+                        <img src="https://i.pinimg.com/736x/9b/7a/ca/9b7acaaefc4987187e340ca41bb2439c.jpg" 
+                             alt="Elegant Cake Table Display" 
+                             class="featured-image">
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Elegant Cake Table</h3>
+                        <p class="text-gray-600 mb-4">A beautifully arranged dessert table featuring our signature birthday cakes, cupcakes, and sweet treats with professional styling and elegant presentation.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Multi-tier cake centerpiece</li>
+                            <li>• Coordinated cupcake display</li>
+                            <li>• Professional table styling</li>
+                            <li>• Custom color themes available</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Featured Display 2 -->
+                <div class="featured-display">
+                    <div class="image-container-large">
+                        <img src="https://i.pinimg.com/1200x/3b/dc/e3/3bdce37f7409443164943adbc7add27a.jpg" 
+                             alt="Gourmet Food Station" 
+                             class="featured-image">
+                    </div>
+                    <div class="featured-content">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-3">Gourmet Food Station</h3>
+                        <p class="text-gray-600 mb-4">Interactive food stations featuring artisan pizzas, gourmet canapés, and fresh options arranged for easy guest access and beautiful presentation.</p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Interactive serving stations</li>
+                            <li>• Professional food warmers</li>
+                            <li>• Elegant serving displays</li>
+                            <li>• Easy guest accessibility</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/45/5a/18/455a180ed37d6cc37521f0bb6077d11f.jpg" 
+                         alt="Birthday Cake Detail" 
+                         class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/06/4c/49/064c49955feb1df73761dedab419646e.jpg" 
+                         alt="Cupcake Tower Display" 
+                         class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/11/71/d3/1171d3f5f58a56fbde915c95e9c6d7ed.jpg" 
+                         alt="Artistic Fruit Display" 
+                         class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/21/2d/7e/212d7e1891fec46ddb6e068b503ef6fe.jpg" 
+                         alt="Chocolate Fountain Setup" 
+                         class="gallery-image">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Food Displays Section -->
+<section class="py-20 px-4 bg-gradient-to-br from-rose-50 to-white">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-4">
+                Featured Food Displays
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Professionally styled food presentations that create memorable birthday experiences
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <!-- Featured Display 1 -->
+            <div class="featured-display">
+                <div class="image-container-large">
+                    <img src="https://i.pinimg.com/736x/f0/ca/42/f0ca429ee02eb13b6e3fe0168daafc4a.jpg" 
+                         alt="Elegant Cake Table Display" 
+                         class="featured-image">
+                </div>
+                <div class="featured-content">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Elegant Cake Table</h3>
+                    <p class="text-gray-600 mb-4">A beautifully arranged dessert table featuring our signature birthday cakes, cupcakes, and sweet treats with professional styling and elegant presentation.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Multi-tier cake centerpiece</li>
+                        <li>• Coordinated cupcake display</li>
+                        <li>• Professional table styling</li>
+                        <li>• Custom color themes available</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Featured Display 2 -->
+            <div class="featured-display">
+                <div class="image-container-large">
+                    <img src="https://i.pinimg.com/1200x/b4/0c/97/b40c97e0dd4c29c6426ad43978ea24b6.jpg" 
+                         alt="Gourmet Food Station" 
+                         class="featured-image">
+                </div>
+                <div class="featured-content">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Gourmet Food Station</h3>
+                    <p class="text-gray-600 mb-4">Interactive food stations featuring artisan pizzas, gourmet canapés, and fresh options arranged for easy guest access and beautiful presentation.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Interactive serving stations</li>
+                        <li>• Professional food warmers</li>
+                        <li>• Elegant serving displays</li>
+                        <li>• Easy guest accessibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="gallery-item">
+                <img src="https://i.pinimg.com/1200x/7e/ce/36/7ece369c105ca3e9c49da7a6d0181668.jpg" 
+                     alt="Birthday Cake Detail" 
+                     class="gallery-image">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.pinimg.com/1200x/a3/62/1e/a3621e30539931908dfbe5242a251a8e.jpg" 
+                     alt="Cupcake Tower Display" 
+                     class="gallery-image">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.pinimg.com/736x/f5/b7/97/f5b79712c8ac1213fec761653c966d5c.jpg" 
+                     alt="Artistic Fruit Display" 
+                     class="gallery-image">
+            </div>
+            <div class="gallery-item">
+                <img src="https://i.pinimg.com/1200x/98/4d/18/984d18d01103fe419bcf94e71f00ceda.jpg" 
+                     alt="Chocolate Fountain Setup" 
+                     class="gallery-image">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <section class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-4">
+                    Why Our Selection Stands Out
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <div class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Quality Assured</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">Premium ingredients and professional preparation ensure exceptional taste and presentation for your special day.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Guest Favorites</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">Carefully selected based on guest preferences and satisfaction rates from hundreds of successful celebrations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="w-16 h-16 bg-rose-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <svg class="w-8 h-8 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4 text-center">Flexible Service</h3>
+                    <p class="text-gray-600 text-center leading-relaxed">Customizable portions and dietary accommodations to perfectly match your celebration's unique requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                <div class="stat-item">
+                    <div class="text-4xl font-bold text-rose-600 mb-2" data-count="500">0</div>
+                    <p class="text-gray-700 text-lg">Celebrations Catered</p>
+                </div>
+                <div class="stat-item">
+                    <div class="text-4xl font-bold text-rose-600 mb-2" data-count="98">0</div>
+                    <p class="text-gray-700 text-lg">% Client Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <div class="text-4xl font-bold text-rose-600 mb-2" data-count="15">0</div>
+                    <p class="text-gray-700 text-lg">Menu Categories</p>
+                </div>
+                <div class="stat-item">
+                    <div class="text-4xl font-bold text-rose-600 mb-2" data-count="5">0</div>
+                    <p class="text-gray-700 text-lg">Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 bg-gradient-to-br from-rose-50 to-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-8">Plan Your Perfect Celebration</h2>
+            <p class="text-xl text-gray-600 mb-12 leading-relaxed">
+                Let our experienced team help you create a memorable birthday celebration with our premium food selection and professional service.
+            </p>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="text-left">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Get Started</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-rose-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Free consultation call
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-rose-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Custom menu planning
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-rose-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Professional service
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="text-left">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Contact Information</h3>
+                        <div class="space-y-3 text-gray-600">
+                            <p class="flex items-center">
+                                <svg class="w-5 h-5 text-rose-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                +254 748428676
+                            </p>
+                            <p class="flex items-center">
+                                <svg class="w-5 h-5 text-rose-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                               Kitchenhaven@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-playfair font-semibold mb-4">Birthday Celebrations</h3>
+                    <p class="text-gray-400 leading-relaxed">Creating memorable birthday experiences through exceptional food and professional service.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-rose-400 transition-colors">Menu Planning</a></li>
+                        <li><a href="#" class="hover:text-rose-400 transition-colors">Catering</a></li>
+                        <li><a href="#" class="hover:text-rose-400 transition-colors">Event Consultation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-rose-400 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-rose-400 transition-colors">Our Team</a></li>
+                        <li><a href="#" class="hover:text-rose-400 transition-colors">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>+254 748428676</li>
+                        <li>Kitchenhaven@gmail.com</li>
+                        <li>Mon-Fri: 9AM-6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400">&copy; 2024 Birthday Celebrations. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Birthday-script.js"></script>
+</body>
+</html>

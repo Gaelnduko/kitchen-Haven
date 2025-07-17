@@ -1,0 +1,127 @@
+/* Simple Bakery Landing Page Styles */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Food Card Styles */
+.food-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f5f9;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-align: center;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: #e11d48;
+}
+
+.food-card .image-container {
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.food-card .food-image {
+  width: 100%;
+  height: 180px; /* Fixed height for consistency */
+  object-fit: cover;
+  transition: transform 0.2s ease-in-out;
+}
+
+.food-card:hover .food-image {
+  transform: scale(1.05);
+}
+
+.food-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.food-card p {
+  color: #6b7280;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Button Hover Effects */
+button,
+a.button-style {
+  position: relative;
+  overflow: hidden;
+}
+
+button::before,
+a.button-style::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before,
+a.button-style:hover::before {
+  left: 100%;
+}
+
+/* Image Loading Animation */
+.food-image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.food-image.loaded {
+  opacity: 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e11d48;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #be185d;
+}
+.ingredient-list {
+  font-size: 0.9em;
+  color: #444;
+  list-style: none;
+}
+.ingredient-list li {
+  margin-bottom: 4px;
+}
+.food-card .ingredient-list {
+  padding-left: 1.5rem;
+  text-align: left;
+}

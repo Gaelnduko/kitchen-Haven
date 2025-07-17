@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .message-enter {
+            animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes slideUp {
+            from { 
+                transform: translateY(15px); 
+                opacity: 0;
+                scale: 0.95;
+            }
+            to { 
+                transform: translateY(0); 
+                opacity: 1;
+                scale: 1;
+            }
+        }
+        
+        .typing-dot {
+            animation: typing 1.6s infinite ease-in-out;
+        }
+        
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        @keyframes typing {
+            0%, 60%, 100% { 
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+            30% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .scrollbar-hide {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .chat-container {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chat-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .bot-avatar {
+            background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            position: relative;
+        }
+        
+        .bot-avatar::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% { 
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+        
+        .user-message {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+            transform: translateY(0);
+            transition: all 0.2s ease;
+        }
+        
+        .user-message:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .bot-message {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transform: translateY(0);
+            transition: all 0.2s ease;
+        }
+        
+        .bot-message:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .quick-reply-btn {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quick-reply-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .quick-reply-btn:hover::before {
+            left: 100%;
+        }
+        
+        .quick-reply-btn:hover {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-1px) scale(1.02);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+        }
+        
+        .chat-input {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border: 2px solid rgba(148, 163, 184, 0.2);
+        }
+        
+        .chat-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+            background: #ffffff;
+        }
+        
+        .send-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        .send-btn:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+            transform: translateY(-1px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+        
+        .send-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        
+        .typing-indicator {
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        .status-indicator {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: statusPulse 2s infinite;
+        }
+        
+        @keyframes statusPulse {
+            0%, 100% { 
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% { 
+                opacity: 0.7;
+                transform: scale(1.2);
+            }
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .message-time {
+            font-size: 0.75rem;
+            color: rgba(148, 163, 184, 0.7);
+            margin-top: 4px;
+        }
+        
+        @media (max-width: 640px) {
+            .chat-container {
+                margin: 0;
+                border-radius: 0;
+                height: 100vh;
+                max-width: 100%;
+            }
+            
+            .quick-reply-btn {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.75rem;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom focus styles */
+        *:focus {
+            outline: none;
+        }
+        
+        /* Loading animation for messages */
+        .loading {
+            opacity: 0.7;
+            animation: loadingPulse 1s infinite;
+        }
+        
+        @keyframes loadingPulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg overflow-hidden">
+        <!-- Header -->
+        <div class="bg-blue-600 text-white p-4 flex items-center space-x-3">
+            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+            <div>
+                <h2 class="font-semibold">Recipe Assistant</h2>
+                <p class="text-sm text-blue-100">Online</p>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div class="h-96 overflow-y-auto p-4 space-y-3 scrollbar-hide" id="chatMessages">
+            <div class="flex items-start space-x-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm">
+                    AI
+                </div>
+                <div class="bg-gray-100 p-3 rounded-lg rounded-tl-none max-w-xs">
+                    <p class="text-sm">Hello! I can help you with recipes and cooking questions.</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap gap-2 ml-10">
+                <button onclick="sendQuickReply('Chicken recipes')" class="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm hover:bg-blue-100">
+                    Chicken recipes
+                </button>
+                <button onclick="sendQuickReply('Quick meals')" class="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm hover:bg-blue-100">
+                    Quick meals
+                </button>
+                <button onclick="sendQuickReply('Desserts')" class="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-sm hover:bg-blue-100">
+                    Desserts
+                </button>
+            </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator hidden px-4 pb-2" id="typingIndicator">
+            <div class="flex items-start space-x-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm">
+                    AI
+                </div>
+                <div class="bg-gray-100 p-3 rounded-lg rounded-tl-none">
+                    <div class="flex space-x-1">
+                        <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
+                        <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
+                        <div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="border-t p-4">
+            <div class="flex items-center space-x-2">
+                <input 
+                    type="text" 
+                    id="chatInput" 
+                    placeholder="Ask about recipes..."
+                    class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button 
+                    onclick="sendMessage()" 
+                    class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const recipes = {
+            chicken: "Grilled Chicken: Season chicken breast, grill 6-8 minutes per side. Serve with vegetables.",
+            pasta: "Spaghetti Carbonara: Cook pasta, mix with eggs, parmesan, and pancetta. Toss while hot.",
+            quick: "Scrambled Eggs: Beat eggs, cook in butter over medium heat. Stir frequently. Ready in 5 minutes.",
+            dessert: "Chocolate Cookies: Mix flour, butter, sugar, chocolate chips. Bake at 375°F for 12 minutes."
+        };
+
+        const substitutions = {
+            butter: "Use coconut oil, olive oil, or margarine",
+            sugar: "Use honey, maple syrup, or stevia (adjust quantity)",
+            flour: "Use almond flour or oat flour for gluten-free",
+            milk: "Use almond milk, oat milk, or coconut milk"
+        };
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            addUserMessage(message);
+            input.value = '';
+            
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                hideTypingIndicator();
+                addBotMessage(generateResponse(message));
+            }, 800);
+        }
+
+        function sendQuickReply(message) {
+            addUserMessage(message);
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                hideTypingIndicator();
+                addBotMessage(generateResponse(message));
+            }, 800);
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function addUserMessage(message) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex justify-end message-enter';
+            messageDiv.innerHTML = `
+                <div class="bg-blue-600 text-white p-3 rounded-lg rounded-tr-none max-w-xs">
+                    <p class="text-sm">${message}</p>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addBotMessage(message) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex items-start space-x-2 message-enter';
+            messageDiv.innerHTML = `
+                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm">
+                    AI
+                </div>
+                <div class="bg-gray-100 p-3 rounded-lg rounded-tl-none max-w-xs">
+                    <p class="text-sm">${message}</p>
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            document.getElementById('typingIndicator').classList.remove('hidden');
+            document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            document.getElementById('typingIndicator').classList.add('hidden');
+        }
+
+        function generateResponse(message) {
+            const msg = message.toLowerCase();
+            
+            if (msg.includes('chicken')) {
+                return recipes.chicken;
+            } else if (msg.includes('pasta') || msg.includes('spaghetti')) {
+                return recipes.pasta;
+            } else if (msg.includes('quick') || msg.includes('fast')) {
+                return recipes.quick;
+            } else if (msg.includes('dessert') || msg.includes('cookie') || msg.includes('sweet')) {
+                return recipes.dessert;
+            } else if (msg.includes('substitute') || msg.includes('replace')) {
+                for (const [ingredient, sub] of Object.entries(substitutions)) {
+                    if (msg.includes(ingredient)) {
+                        return sub;
+                    }
+                }
+                return "What ingredient would you like to substitute?";
+            } else if (msg.includes('vegetarian')) {
+                return "Try: Vegetable stir-fry, quinoa salad, lentil soup, or caprese sandwich.";
+            } else if (msg.includes('baking')) {
+                return "Key tips: Measure accurately, use room temperature ingredients, don't overmix.";
+            } else {
+                return "I can help with recipes, cooking tips, and ingredient substitutions. What would you like to know?";
+            }
+        }
+
+        // Focus input on load
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('chatInput').focus();
+        });
+    </script>
+</body>
+</html>

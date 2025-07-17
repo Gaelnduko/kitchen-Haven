@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Food Tasting - Elegant Catering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rose: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            200: '#fbcfe8',
+                            300: '#f9a8d4',
+                            400: '#f472b6',
+                            500: '#ec4899',
+                            600: '#db2777',
+                            700: '#be185d',
+                            800: '#9d174d',
+                            900: '#831843'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+    <!-- Tasting Cart -->
+    <div id="tasting-cart" class="fixed right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-lg p-4 w-80 hidden z-40">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-semibold text-gray-800">Your Tasting Selection</h3>
+            <button onclick="toggleCart()" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="cart-items" class="mb-4 max-h-60 overflow-y-auto">
+            <!-- Cart items will be added here -->
+        </div>
+        <div class="border-t pt-4">
+            <div class="flex justify-between items-center mb-4">
+                <span class="font-semibold">Total Items:</span>
+                <span id="cart-count">0</span>
+            </div>
+            <button onclick="proceedToBooking()" class="w-full bg-rose-600 text-white py-2 rounded hover:bg-rose-700 transition duration-300">
+                Proceed to Booking
+            </button>
+        </div>
+    </div>
+
+    <!-- Cart Toggle Button -->
+    <button id="cart-toggle" onclick="toggleCart()" class="fixed right-4 bottom-4 bg-rose-600 text-white p-4 rounded-full shadow-lg hover:bg-rose-700 transition duration-300 z-50">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-badge" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm hidden">0</span>
+    </button>
+
+    <!-- Packages Section -->
+    <section id="packages" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Tasting Packages</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Essential Tasting</h3>
+                        <div class="text-4xl font-bold text-rose-600 mb-6">Ksh5150</div>
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>3 Appetizer samples</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>2 Main course samples</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>2 Dessert samples</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Wine pairing suggestions</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>1-hour consultation</li>
+                        </ul>
+                        <button class="w-full bg-rose-600 text-white py-3 rounded-lg hover:bg-rose-700 transition duration-300">
+                            Select Package
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300 border-4 border-rose-600 relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-rose-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                        Most Popular
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Premium Tasting</h3>
+                        <div class="text-4xl font-bold text-rose-600 mb-6">Ksh10,550</div>
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>5 Appetizer samples</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>3 Main course samples</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>3 Dessert samples</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Beverage tasting</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>2-hour consultation</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Menu customization</li>
+                        </ul>
+                        <button class="w-full bg-rose-600 text-white py-3 rounded-lg hover:bg-rose-700 transition duration-300">
+                            Select Package
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition duration-300">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Luxury Experience</h3>
+                        <div class="text-4xl font-bold text-rose-600 mb-6">Ksh8,000</div>
+                        <ul class="text-left space-y-3 mb-8">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Full menu sampling</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Premium wine pairing</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Signature cocktails</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>3-hour experience</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Personal chef consultation</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Custom menu creation</li>
+                        </ul>
+                        <button class="w-full bg-rose-600 text-white py-3 rounded-lg hover:bg-rose-700 transition duration-300">
+                            Select Package
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section id="booking" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12"></h2>
+            <div class="max-w-2xl mx-auto">
+                <form id="booking-form" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="bride-name" class="block text-sm font-medium text-gray-700 mb-2">Bride's Name</label>
+                            <input type="text" id="bride-name" name="bride-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="groom-name" class="block text-sm font-medium text-gray-700 mb-2">Groom's Name</label>
+                            <input type="text" id="groom-name" name="groom-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="wedding-date" class="block text-sm font-medium text-gray-700 mb-2">Wedding Date</label>
+                            <input type="date" id="wedding-date" name="wedding-date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="guest-count" class="block text-sm font-medium text-gray-700 mb-2">Expected Guest Count</label>
+                            <select id="guest-count" name="guest-count" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                                <option value="">Select guest count</option>
+                                <option value="50-75">50-75 guests</option>
+                                <option value="76-100">76-100 guests</option>
+                                <option value="101-150">101-150 guests</option>
+                                <option value="151-200">151-200 guests</option>
+                                <option value="200+">200+ guests</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="tasting-date" class="block text-sm font-medium text-gray-700 mb-2">Preferred Tasting Date</label>
+                            <input type="date" id="tasting-date" name="tasting-date" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="tasting-time" class="block text-sm font-medium text-gray-700 mb-2">Preferred Time</label>
+                            <select id="tasting-time" name="tasting-time" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                                <option value="">Select time</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="2:00 PM">2:00 PM</option>
+                                <option value="4:00 PM">4:00 PM</option>
+                                <option value="6:00 PM">6:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="package" class="block text-sm font-medium text-gray-700 mb-2">Tasting Package</label>
+                        <select id="package" name="package" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent">
+                            <option value="">Select package</option>
+                            <option value="essential">Essential Tasting - $150</option>
+                            <option value="premium">Premium Tasting - $250</option>
+                            <option value="luxury">Luxury Experience - $400</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="dietary-restrictions" class="block text-sm font-medium text-gray-700 mb-2">Dietary Restrictions or Allergies</label>
+                        <textarea id="dietary-restrictions" name="dietary-restrictions" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent" placeholder="Please let us know about any dietary restrictions or food allergies..."></textarea>
+                    </div>
+                    
+                    <div>
+                        <label for="special-requests" class="block text-sm font-medium text-gray-700 mb-2">Special Requests or Notes</label>
+                        <textarea id="special-requests" name="special-requests" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-transparent" placeholder="Any special requests or additional information you'd like to share..."></textarea>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="bg-rose-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-rose-700 transition duration-300 shadow-lg">
+                            Book Your Tasting Session
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Contact Us</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <i class="fas fa-phone text-3xl text-rose-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Phone</h3>
+                    <p class="text-gray-600">+254 748428676</p>
+                </div>
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <i class="fas fa-envelope text-3xl text-rose-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Email</h3>
+                    <p class="text-gray-600">gailnduko@gmail.com</p>
+                </div>
+                <div class="bg-white rounded-lg p-8 shadow-lg">
+                    <i class="fas fa-map-marker-alt text-3xl text-rose-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Location</h3>
+                    <p class="text-gray-600">123 Culinary Street<br>Food City, FC 12345</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Elegant Catering</h3>
+                    <p class="text-gray-400">Creating unforgettable culinary experiences for your special day.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition duration-300">Wedding Catering</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Food Tasting</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Event Planning</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Custom Menus</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#menu" class="hover:text-white transition duration-300">Menu</a></li>
+                        <li><a href="#packages" class="hover:text-white transition duration-300">Packages</a></li>
+                        <li><a href="#booking" class="hover:text-white transition duration-300">Book Tasting</a></li>
+                        <li><a href="#contact" class="hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-pinterest text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Elegant Catering. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <div class="text-center">
+                <i class="fas fa-check-circle text-5xl text-green-500 mb-4"></i>
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Booking Confirmed!</h3>
+                <p class="text-gray-600 mb-6">Thank you for booking your wedding food tasting. We'll contact you within 24 hours to confirm your appointment.</p>
+                <button onclick="closeModal()" class="bg-rose-600 text-white px-6 py-3 rounded-lg hover:bg-rose-700 transition duration-300">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Menu category switching
+        function showCategory(category) {
+            // Hide all categories
+            const categories = document.querySelectorAll('.menu-category');
+            categories.forEach(cat => cat.classList.add('hidden'));
+            
+            // Show selected category
+            document.getElementById(category).classList.remove('hidden');
+            
+            // Update button styles
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'bg-rose-600', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            // Highlight active button
+            event.target.classList.add('active', 'bg-rose-600', 'text-white');
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+        }
+
+        // Tasting cart functionality
+        let tastingCart = [];
+
+        function addToTasting(itemName) {
+            if (!tastingCart.includes(itemName)) {
+                tastingCart.push(itemName);
+                updateCartDisplay();
+                showNotification(`${itemName} added to your tasting selection!`);
+            } else {
+                showNotification(`${itemName} is already in your tasting selection.`);
+            }
+        }
+
+        function removeFromTasting(itemName) {
+            const index = tastingCart.indexOf(itemName);
+            if (index > -1) {
+                tastingCart.splice(index, 1);
+                updateCartDisplay();
+                showNotification(`${itemName} removed from your tasting selection.`);
+            }
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const cartBadge = document.getElementById('cart-badge');
+            
+            cartItems.innerHTML = '';
+            
+            if (tastingCart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-500 text-center">No items selected</p>';
+            } else {
+                tastingCart.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'flex justify-between items-center py-2 border-b';
+                    itemDiv.innerHTML = `
+                        <span class="text-sm">${item}</span>
+                        <button onclick="removeFromTasting('${item}')" class="text-red-500 hover:text-red-700">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                    cartItems.appendChild(itemDiv);
+                });
+            }
+            
+            cartCount.textContent = tastingCart.length;
+            cartBadge.textContent = tastingCart.length;
+            
+            if (tastingCart.length > 0) {
+                cartBadge.classList.remove('hidden');
+            } else {
+                cartBadge.classList.add('hidden');
+            }
+        }
+
+        function toggleCart() {
+            const cart = document.getElementById('tasting-cart');
+            cart.classList.toggle('hidden');
+        }
+
+        function proceedToBooking() {
+            toggleCart();
+            scrollToSection('booking');
+        }
+
+        // Notification system
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Form submission
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            setTimeout(() => {
+                document.getElementById('success-modal').classList.remove('hidden');
+                this.reset();
+                tastingCart = [];
+                updateCartDisplay();
+            }, 1000);
+        });
+
+        function closeModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+
+        // Set minimum date for tasting to tomorrow
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        
+        const tastingDateInput = document.getElementById('tasting-date');
+        const weddingDateInput = document.getElementById('wedding-date');
+        
+        tastingDateInput.min = tomorrow.toISOString().split('T')[0];
+        weddingDateInput.min = tomorrow.toISOString().split('T')[0];
+
+        // Initialize cart display
+        updateCartDisplay();
+    </script>
+</body>
+</html>

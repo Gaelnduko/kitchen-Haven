@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kitchen-Haven - Discover Culinary Excellence</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+
+
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <i class="fas fa-utensils"></i>
+          <span>Kitchen-Haven</span>
+        </div>
+
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+             <li class="nav-item dropdown">
+                <a href="#" class="nav-link" id="occasions-toggle">Occasions</a>
+                   <ul class="dropdown-menu" id="occasions-menu">
+                      <li><a href="weddings.html" class="dropdown-item">Weddings</a></li>
+                          <li><a href="birthdays.html" class="dropdown-item">Birthdays</a></li>
+                             <li><a href="babyshowers.html" class="dropdown-item">Baby Showers</a></li>
+                    </ul>
+              </li>
+
+        <script>
+               const toggleBtn = document.getElementById("occasions-toggle");
+                     const dropdownMenu = document.getElementById("occasions-menu");
+
+                toggleBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+           dropdownMenu.style.display =
+              dropdownMenu.style.display === "block" ? "none" : "block";
+               });
+
+             document.addEventListener("click", function (e) {
+           if (!toggleBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.style.display = "none";
+            }
+             });
+         </script>
+
+          </ul>
+          </li>
+
+          <li><a href="recipes.html" class="nav-link">Recipes</a></li>
+          <li><a href="Region.html" class="nav-link">Region</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <div
+            aria-label="User Login Button"
+            tabindex="0"
+            role="button"
+            class="user-profile"
+          >
+           <div class="user-profile-inner">
+      <svg
+      aria-hidden="true"
+       xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 24 24"
+       >
+        <g data-name="Layer 2" id="Layer_2">
+         <path
+            d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z"
+           ></path>
+         </g>
+          </svg>
+
+  
+      <p><a href="signup.html">Sign up</a></p>
+        </div>
+
+          </div>
+        </ul>
+
+        <div class="nav-toggle" id="nav-toggle">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero" id="home">
+      <div class="hero-background">
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+          <div class="shape shape-4"></div>
+          <div class="shape shape-5"></div>
+        </div>
+      </div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="title-line">Discover the Art of</span>
+            <span class="title-highlight">Culinary Excellence</span>
+          </h1>
+          <p class="hero-description">
+            Embark on a gastronomic journey with our curated collection of
+            exquisite recipes, expert techniques, and culinary secrets from
+            world-renowned chefs.
+          </p>
+          <div class="hero-buttons">
+            <a
+              href="Explore-recipies.html"
+              class="btn btn-primary"
+              id="explore-btn"
+              target="_blank"
+            >
+              <span>Explore Recipes</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+
+            <a href="chatbot.html" class="btn btn-secondary" id="watch-btn" target="_blank">
+  <i class="fas fa-play"></i>
+  <span>Chat bot</span>
+</a>
+
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number" data-target="10000"
+                >A million recipies</span
+              >
+              <span class="stat-label">Recipes</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-target="50000">50,000</span>
+              <span class="stat-label">Happy Cooks</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number" data-target="500">600</span>
+              <span class="stat-label">Expert Chefs</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="image-container">
+            <img
+              src="https://i.pinimg.com/1200x/32/f8/9f/32f89f6cd03f8af1f2d4443bf7a0befa.jpg"
+              alt="Gourmet Dish"
+              class="main-image"
+            />
+            <div class="floating-card card-1">
+              <i class="fas fa-star"></i>
+              <span>East to make just in </span>
+            </div>
+            <div class="floating-card card-2">
+              <i class="fas fa-clock"></i>
+              <span>30 Min</span>
+            </div>
+            <div class="floating-card card-3">
+              <i class="fas fa-fire"></i>
+              <span>At the comfort of your home</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Why Choose Kitchen Haven?</h2>
+          <p class="section-subtitle">
+            Discover what makes our platform the ultimate destination for
+            culinary enthusiasts
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card" data-aos="fade-up" data-delay="0">
+            <div class="feature-icon">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <h3>Curated Recipes</h3>
+            <p>
+              Hand-picked recipes from world-class chefs, tested and perfected
+              for your kitchen.
+            </p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-delay="100">
+            <div class="feature-icon">
+              <i class="fas fa-video"></i>
+            </div>
+            <h3>Video Tutorials</h3>
+            <p>
+              Step-by-step video guides that make even the most complex dishes
+              easy to master.
+            </p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-delay="200">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Community</h3>
+            <p>
+              Join a vibrant community of food lovers sharing tips, tricks, and
+              culinary adventures.
+            </p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-delay="300">
+            <div class="feature-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Mobile App</h3>
+            <p>
+              Cook anywhere with our intuitive mobile app, complete with offline
+              recipe access.
+            </p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-delay="400">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Progress Tracking</h3>
+            <p>
+              Track your culinary journey with personalized progress insights
+              and achievements.
+            </p>
+          </div>
+          <div class="feature-card" data-aos="fade-up" data-delay="500">
+            <div class="feature-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Personalized</h3>
+            <p>
+              AI-powered recommendations based on your taste preferences and
+              dietary requirements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recipe Showcase -->
+    <section class="recipe-showcase" id="recipes">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Recipes</h2>
+          <p class="section-subtitle">
+            Explore our most popular and trending recipes
+          </p>
+        </div>
+        <div class="recipe-tabs">
+          <button class="tab-btn active" data-category="all">All</button>
+          <button class="tab-btn" data-category="appetizers">Appetizers</button>
+          <button class="tab-btn" data-category="mains">Main Course</button>
+          <button class="tab-btn" data-category="desserts">Desserts</button>
+        </div>
+        <div class="recipe-grid" id="recipe-grid">
+          <!-- Recipes will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">What Our Community Says</h2>
+          <p class="section-subtitle">
+            Join thousands of satisfied home cooks and professional chefs
+          </p>
+        </div>
+        <div class="testimonials-slider" id="testimonials-slider">
+          <div class="testimonial-card active">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>
+                "FlavorCraft has completely transformed my cooking. The video
+                tutorials are incredibly detailed, and the community support is
+                amazing!"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://i.pinimg.com/736x/9e/df/1b/9edf1b5295d0362fd05ac0b8f121bffa.jpg"
+                  alt="Mary john"
+                />
+                <div class="author-info">
+                  <h4>Sarah Johnson</h4>
+                  <span>Home Chef</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>
+                "As a professional chef, I'm impressed by the quality and
+                authenticity of the recipes. This platform is a game-changer!"
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="/placeholder.svg?height=60&width=60"
+                  alt="Marcus Chen"
+                />
+                <div class="author-info">
+                  <h4>Marcus Chen</h4>
+                  <span>Executive Chef</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p>
+                "The personalized recommendations are spot-on! I've discovered
+                so many new favorite dishes through FlavorCraft."
+              </p>
+              <div class="testimonial-author">
+                <img
+                  src="https://i.pinimg.com/1200x/01/d0/ae/01d0ae7d470e1b3ac8e9630927fb1236.jpg"
+                  alt="Emily Rodriguez"
+                />
+                <div class="author-info">
+                  <h4>Emily Rodriguez</h4>
+                  <span>Food Blogger</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-controls">
+          <button class="slider-btn prev" id="prev-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="slider-dots" id="slider-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+          </div>
+          <button class="slider-btn next" id="next-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Start Your Culinary Journey?</h2>
+          <p>
+            Join over 50,000 food enthusiasts and discover your next favorite
+            recipe today!
+          </p>
+          <div class="cta-buttons">
+            <button
+              class="btn btn-primary btn-large"
+              onclick="window.location.href='signup.html'"
+            >
+              <span>Get Started Free</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+
+            <button class="btn btn-outline btn-large"
+              onclick="window.location.href='Explore-recipies.html'"
+            >
+              <span>View Pricing</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <i class="fas fa-utensils"></i>
+              <span>FlavorCraft</span>
+            </div>
+            <p>
+              Discover the art of culinary excellence with our curated
+              collection of recipes and expert guidance.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#recipes">Recipes</a></li>
+              <li><a href="#testimonials">Reviews</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Categories</h3>
+            <ul>
+              <li><a href="Explore-recipies.html">Appetizers</a></li>
+              <li><a href="#">Main Course</a></li>
+              <li><a href="#">Desserts</a></li>
+              <li><a href="#">Beverages</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 FlavorCraft. All rights reserved. Crafted with ❤️ for
+            food lovers.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/Auth.js"></script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Delights Bakery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="cakes-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter bg-gray-50 min-h-screen text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <span class="text-2xl font-playfair font-semibold text-gray-800">Sweet Delights Bakery</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-rose-600 transition-colors font-medium">Home</a>
+                    <a href="#bakery" class="text-gray-600 hover:text-rose-600 transition-colors font-medium">Bakery</a>
+                    <a href="#contact" class="text-gray-600 hover:text-rose-600 transition-colors font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-20 px-4 bg-gradient-to-br from-rose-50 to-white text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-playfair font-bold text-gray-800 mb-6 leading-tight">
+                Freshly Baked <span class="text-rose-600">Goodness</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+                Explore our wide variety of delicious bakery items, crafted with passion and the finest ingredients.
+            </p>
+            <button id="explore-bakery-btn" class="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+                Discover Our Bakery
+            </button>
+        </div>
+    </section>
+
+    <!-- Bakery Food Types Section -->
+    <section id="bakery" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-4">
+                    Our Bakery Delights
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    From classic comforts to artisanal creations, find your perfect treat.
+                </p>
+            </div>
+
+            <!-- Food Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="food-grid">
+                <!-- Bakery cards will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-gradient-to-br from-rose-50 to-white text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-playfair font-bold text-gray-800 mb-8">
+                Visit Us or Get in Touch
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                We'd love to hear from you! Find us at our location or contact us for special orders.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html" class="bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+                    Contact Us
+                </a>
+                <a href="tel:+1234567890" class="border-2 border-rose-600 text-rose-600 hover:bg-rose-600 hover:text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+                    
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 px-4 text-center">
+        <div class="max-w-7xl mx-auto">
+            <p class="text-gray-400">&copy; 2024 Sweet Delights Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="cake-script.js"></script>
+</body>
+</html>

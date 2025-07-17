@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Kitchen-Haven Bites - Fresh Cooked Food</title>
+    <link rel="stylesheet" href="../css/explore-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>🍽️ Delicious Kitchen-Haven Bites</h2>
+                    <ul>
+                        <li><a href="../html/index.html" class="nav-link">Home</a></li>
+                    </ul>
+                </div>    
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Fresh Cooked Food</h1>
+            <p>Discover delicious recipes with prices and cooking times</p>
+            <button class="cta-button" onclick="scrollToMenu()">Recipes Worth Remembering</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.pinimg.com/736x/ca/e7/f7/cae7f71878ec9c31a50700177b9bd7f0.jpg" alt="Delicious Food" />
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Kenyan culture</button>
+                <button class="filter-btn" data-filter="main">kids section</button>
+                <button class="filter-btn" data-filter="appetizer">Easy Appetizers</button>
+                <button class="filter-btn" data-filter="dessert">Easy to prepare Desserts</button>
+                <button class="filter-btn" data-filter="beverage">Exquisite Beverages</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="menu-grid" id="menuGrid">
+       
+            </div>
+        </div>
+    </section>
+
+    
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <img id="modalImage" src="https://i.pinimg.com/736x/54/d6/a9/54d6a9e3bae82c5cc7601c602b186b06.jpg" alt="fries">
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-details">
+                        <span class="price" id="modalPrice"></span>
+                        <span class="time" id="modalTime"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3>Ingredients:</h3>
+                <ul id="modalIngredients"></ul>
+                <h3>Instructions:</h3>
+                <ol id="modalInstructions"></ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We provide fresh, delicious cooked food with detailed recipes and transparent pricing. Our chefs prepare each dish with love and the finest ingredients.</p>
+        </div>
+    </section>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Delicious Bites. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/Explore-script.js"></script>
+</body>
+</html>
