@@ -616,6 +616,7 @@ body {
   gap: 1rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
+  text-decoration: none;
 }
 
 .tab-btn {
@@ -626,6 +627,7 @@ body {
   border-radius: 25px;
   cursor: pointer;
   font-weight: 500;
+  text-decoration: none;
   transition: var(--transition);
 }
 
@@ -638,7 +640,7 @@ body {
 .recipe-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 6rem;
 }
 
 .recipe-card {
