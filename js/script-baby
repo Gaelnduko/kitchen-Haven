@@ -1,0 +1,725 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      document.querySelector(this.getAttribute("href")).scrollIntoView({
+        behavior: "smooth",
+      });
+    });
+  });
+
+  // Recipe Data
+  const recipes = [
+    {
+      slug: "delicate-mini-cupcakes",
+      title: "Delicate Mini Cupcakes",
+      description:
+        "Assorted mini cupcakes with pastel frosting, perfect for a sweet treat.",
+      image:
+        "https://i.pinimg.com/1200x/5d/7c/bc/5d7cbc597e8e66b90fac3210ae74e500.jpg",
+      alt: "Mini cupcakes with pink and blue frosting",
+      ingredients: [
+        "1 ½ cups all-purpose flour",
+        "1 ½ tsp baking powder",
+        "¼ tsp salt",
+        "½ cup unsalted butter, softened",
+        "1 cup granulated sugar",
+        "2 large eggs",
+        "1 tsp vanilla extract",
+        "½ cup milk",
+        "Food coloring (pink, blue, yellow)",
+        "For Frosting:",
+        "1 cup unsalted butter, softened",
+        "3-4 cups powdered sugar",
+        "1 tsp vanilla extract",
+        "2-3 tbsp milk or cream",
+        "Pinch of salt",
+      ],
+      instructions: [
+        "Preheat oven to 350°F (175°C). Line a mini muffin tin with paper liners.",
+        "In a medium bowl, whisk together flour, baking powder, and salt.",
+        "In a large bowl, cream together butter and sugar until light and fluffy.",
+        "Beat in eggs one at a time, then stir in vanilla extract.",
+        "Gradually add dry ingredients to wet ingredients, alternating with milk, beginning and ending with dry ingredients. Mix until just combined.",
+        "Divide batter into separate bowls and tint with desired food colorings.",
+        "Fill muffin liners about two-thirds full. Bake for 10-12 minutes, or until a toothpick inserted into the center comes out clean.",
+        "Let cool in the tin for a few minutes before transferring to a wire rack to cool completely.",
+        "For frosting: Beat softened butter until creamy. Gradually add powdered sugar, alternating with milk/cream, until smooth and fluffy. Stir in vanilla and salt. Divide and tint with food coloring.",
+        "Pipe frosting onto cooled cupcakes.",
+      ],
+    },
+    {
+      slug: "fresh-fruit-skewers",
+      title: "Fresh Fruit Skewers",
+      description:
+        "Colorful skewers of fresh seasonal fruits, a healthy and refreshing option.",
+      image:
+        "https://i.pinimg.com/736x/61/fd/11/61fd112acb536d26c3ee27f82a6ec5b3.jpg",
+      alt: "Fruit skewers with strawberries, grapes, and melon",
+      ingredients: [
+        "1 cup strawberries, hulled and halved",
+        "1 cup green grapes",
+        "1 cup red grapes",
+        "1 cup cantaloupe, cubed",
+        "1 cup honeydew melon, cubed",
+        "1 cup pineapple, cubed",
+        "Wooden skewers",
+      ],
+      instructions: [
+        "Wash all fruits thoroughly.",
+        "Cut larger fruits (strawberries, melons, pineapple) into bite-sized pieces.",
+        "Carefully thread the fruit pieces onto the wooden skewers, alternating colors for an appealing look.",
+        "Arrange on a platter and serve immediately or chill until ready to serve.",
+      ],
+    },
+    {
+      slug: "elegant-finger-sandwiches",
+      title: "Elegant Finger Sandwiches",
+      description:
+        "Assortment of classic finger sandwiches with various fillings, easy to enjoy.",
+      image:
+        "https://i.pinimg.com/1200x/46/20/ed/4620ed5950375fffdb7ff68af79bb05a.jpg",
+      alt: "Small triangular finger sandwiches",
+      ingredients: [
+        "1 loaf white bread, crusts removed",
+        "1 loaf whole wheat bread, crusts removed",
+        "For Cucumber & Cream Cheese:",
+        "4 oz cream cheese, softened",
+        "¼ cup finely chopped fresh dill",
+        "1 small cucumber, thinly sliced",
+        "Salt and pepper to taste",
+        "For Egg Salad:",
+        "3 hard-boiled eggs, mashed",
+        "2 tbsp mayonnaise",
+        "1 tsp Dijon mustard",
+        "1 tbsp finely chopped celery",
+        "Salt and pepper to taste",
+        "For Smoked Salmon & Dill:",
+        "4 oz smoked salmon",
+        "2 tbsp cream cheese",
+        "1 tbsp fresh dill, chopped",
+        "Lemon juice to taste",
+      ],
+      instructions: [
+        "For Cucumber & Cream Cheese: Mix cream cheese and dill. Spread on white bread. Layer with cucumber slices. Season with salt and pepper. Top with another slice of bread.",
+        "For Egg Salad: Combine mashed eggs, mayonnaise, Dijon, and celery. Season. Spread on whole wheat bread. Top with another slice of bread.",
+        "For Smoked Salmon & Dill: Mix cream cheese, dill, and lemon juice. Spread on white bread. Layer with smoked salmon. Top with another slice of bread.",
+        "Press down gently on each sandwich. Using a sharp knife, cut each sandwich into 3-4 finger-sized rectangles or triangles.",
+        "Arrange elegantly on a serving platter.",
+      ],
+    },
+    {
+      slug: "custom-decorated-cookies",
+      title: "Custom Decorated Cookies",
+      description:
+        "Beautifully decorated sugar cookies with baby-themed designs.",
+      image:
+        "https://i.pinimg.com/1200x/10/4e/fc/104efc403933baaf6b7ac93d014875a1.jpg",
+      alt: "Sugar cookies decorated with baby bottle and onesie shapes",
+      ingredients: [
+        "1 cup unsalted butter, softened",
+        "1 cup granulated sugar",
+        "1 large egg",
+        "1 tsp vanilla extract",
+        "3 cups all-purpose flour",
+        "½ tsp baking powder",
+        "¼ tsp salt",
+        "For Royal Icing:",
+        "4 cups powdered sugar",
+        "3 tbsp meringue powder",
+        "½ cup warm water (approx)",
+        "Food coloring (pink, blue, white)",
+      ],
+      instructions: [
+        "In a large bowl, cream butter and sugar until light and fluffy.",
+        "Beat in egg and vanilla extract.",
+        "In a separate bowl, whisk together flour, baking powder, and salt. Gradually add dry ingredients to wet ingredients, mixing until just combined.",
+        "Divide dough in half, flatten into discs, wrap in plastic, and chill for at least 30 minutes.",
+        "Preheat oven to 375°F (190°C). Roll out dough on a lightly floured surface to ¼ inch thickness. Cut into desired baby-themed shapes (bottles, onesies, rattles).",
+        "Place cookies on baking sheets lined with parchment paper. Bake for 8-10 minutes, or until edges are lightly golden.",
+        "Let cool on baking sheets for a few minutes before transferring to a wire rack to cool completely.",
+        "For Royal Icing: In a large bowl, whisk powdered sugar and meringue powder. Gradually add warm water, beating on low speed until smooth. Increase speed to high and beat for 5-7 minutes until stiff peaks form. Divide and tint with food coloring.",
+        "Decorate cooled cookies as desired. Allow icing to dry completely before stacking or serving.",
+      ],
+    },
+    {
+      slug: "sparkling-berry-punch",
+      title: "Sparkling Berry Punch",
+      description:
+        "A refreshing non-alcoholic punch with mixed berries and a hint of citrus.",
+      image:
+        "https://i.pinimg.com/736x/f4/40/eb/f440ebaca72008aa1915b30b10f3a796.jpg",
+      alt: "Punch bowl with berries and ice",
+      ingredients: [
+        "2 cups mixed berries (fresh or frozen)",
+        "1 cup granulated sugar",
+        "1 cup water",
+        "2 cups cranberry juice",
+        "1 cup orange juice",
+        "½ cup lemon juice",
+        "4 cups sparkling water or ginger ale, chilled",
+        "Ice cubes",
+        "Fresh mint sprigs for garnish (optional)",
+      ],
+      instructions: [
+        "In a saucepan, combine mixed berries, sugar, and water. Bring to a simmer over medium heat, stirring until sugar dissolves. Cook for 5-7 minutes until berries soften. Mash berries slightly with a fork.",
+        "Strain the berry mixture through a fine-mesh sieve into a large pitcher or punch bowl, pressing on the solids to extract all liquid. Discard solids.",
+        "Add cranberry juice, orange juice, and lemon juice to the berry syrup. Stir well. Chill for at least 1 hour.",
+        "Just before serving, add chilled sparkling water or ginger ale and ice cubes to the punch. Stir gently.",
+        "Garnish with fresh mint sprigs and extra berries, if desired.",
+      ],
+    },
+    {
+      slug: "assorted-french-macarons",
+      title: "Assorted French Macarons",
+      description:
+        "Delicate and colorful French macarons in various delightful flavors.",
+      image:
+        "https://i.pinimg.com/736x/0b/10/b7/0b10b73c475c740dd41dd0c24c3092a5.jpg",
+      alt: "Colorful French macarons",
+      ingredients: [
+        "For Macaron Shells:",
+        "100g almond flour, finely sifted",
+        "100g powdered sugar, finely sifted",
+        "2 large egg whites (aged, at room temperature)",
+        "100g granulated sugar",
+        "Food coloring (gel or powder)",
+        "For Buttercream Filling:",
+        "½ cup unsalted butter, softened",
+        "2 cups powdered sugar",
+        "1 tsp vanilla extract",
+        "1-2 tbsp milk or cream",
+      ],
+      instructions: [
+        "Prepare Macaron Shells: Sift almond flour and powdered sugar together twice. Set aside.",
+        "In a clean, dry bowl, beat egg whites on medium speed until foamy. Gradually add granulated sugar, beating on high speed until stiff, glossy peaks form (French meringue). Gently fold in food coloring.",
+        "Add the dry ingredients to the meringue in 2-3 additions, folding gently with a spatula until just combined and the batter flows like lava (macaronage). Be careful not to overmix.",
+        "Transfer batter to a piping bag fitted with a round tip. Pipe 1.5-inch circles onto parchment-lined baking sheets.",
+        "Tap baking sheets firmly on the counter 2-3 times to release air bubbles. Let macarons rest at room temperature for 30-60 minutes, or until a skin forms (they should not stick to your finger).",
+        "Preheat oven to 300°F (150°C). Bake one sheet at a time for 12-15 minutes, rotating halfway, until 'feet' appear and shells are firm.",
+        "Let cool completely on the baking sheet before carefully peeling off parchment.",
+        "Prepare Buttercream Filling: Beat softened butter until creamy. Gradually add powdered sugar, then vanilla and milk/cream, beating until light and fluffy.",
+        "Assemble: Pipe or spread a dollop of buttercream onto one macaron shell and top with another shell of the same size. Gently press together.",
+        "Store macarons in an airtight container in the refrigerator for at least 24 hours before serving for best flavor and texture.",
+      ],
+    },
+    {
+      slug: "savory-mini-quiches",
+      title: "Savory Mini Quiches",
+      description:
+        "Bite-sized quiches with spinach and cheese, a delightful savory option.",
+      image:
+        "https://i.pinimg.com/1200x/b3/7f/14/b37f14607bdbb1efa47d2760cf545d8b.jpg",
+      alt: "Mini quiches on a serving platter",
+      ingredients: [
+        "1 sheet puff pastry, thawed",
+        "2 large eggs",
+        "½ cup milk or cream",
+        "¼ cup shredded Gruyere or cheddar cheese",
+        "¼ cup cooked spinach, squeezed dry and chopped",
+        "2 tbsp finely chopped onion or shallot",
+        "Salt and black pepper to taste",
+        "Pinch of nutmeg (optional)",
+      ],
+      instructions: [
+        "Preheat oven to 375°F (190°C). Lightly grease a mini muffin tin.",
+        "Unroll puff pastry and cut into 2-inch circles using a round cookie cutter or glass. Press each circle into the prepared muffin tin cups.",
+        "In a medium bowl, whisk together eggs, milk/cream, cheese, spinach, onion/shallot, salt, pepper, and nutmeg (if using).",
+        "Pour the egg mixture into the puff pastry cups, filling about two-thirds full.",
+        "Bake for 15-20 minutes, or until the quiches are puffed, golden brown, and the filling is set.",
+        "Let cool in the muffin tin for a few minutes before carefully removing. Serve warm or at room temperature.",
+      ],
+    },
+    {
+      slug: "chocolate-dipped-strawberries",
+      title: "Chocolate Dipped Strawberries",
+      description:
+        "Fresh strawberries elegantly dipped in white and milk chocolate.",
+      image:
+        "https://i.pinimg.com/1200x/07/9b/5a/079b5acc9de27e305d60b742afcf5be0.jpg",
+      alt: "Strawberries dipped in chocolate with pink sprinkles",
+      ingredients: [
+        "1 lb fresh strawberries, washed and thoroughly dried (very important!)",
+        "6 oz good quality white chocolate, chopped",
+        "6 oz good quality milk or dark chocolate, chopped",
+        "Optional: pink sprinkles, edible glitter, or contrasting chocolate for drizzle",
+      ],
+      instructions: [
+        "Line a baking sheet with parchment paper or wax paper.",
+        "Melt white chocolate: Place chopped white chocolate in a microwave-safe bowl. Microwave in 30-second intervals, stirring after each, until smooth and melted. Be careful not to overheat white chocolate as it can seize.",
+        "Melt milk/dark chocolate: Repeat the melting process for the milk or dark chocolate.",
+        "Dip strawberries: Holding a strawberry by its stem, dip it into the melted chocolate, twisting gently to coat about two-thirds of the berry. Let excess chocolate drip off.",
+        "Place dipped strawberries on the prepared baking sheet. If using sprinkles, add them immediately after dipping before the chocolate sets.",
+        "For drizzle: Once the first layer of chocolate has set, you can drizzle contrasting melted chocolate over the berries using a fork or a piping bag with a very small hole.",
+        "Refrigerate for at least 15-20 minutes, or until the chocolate is completely set. Serve chilled.",
+      ],
+    },
+    {
+      slug: "lemon-cheesecake-bites",
+      title: "Lemon Cheesecake Bites",
+      description:
+        "Creamy mini lemon cheesecakes with a buttery graham cracker crust — perfect for bite-sized indulgence at baby showers.",
+      image:
+        "https://i.pinimg.com/1200x/1e/88/50/1e88505187e76816ba322f107de5b3b7.jpg",
+      alt: "Mini lemon cheesecake bites topped with whipped cream and lemon zest",
+      ingredients: [
+        "1 cup graham cracker crumbs",
+        "3 tbsp melted butter",
+        "2 tbsp granulated sugar (for crust)",
+        "8 oz cream cheese, softened",
+        "1/3 cup granulated sugar",
+        "1 large egg",
+        "1 tsp vanilla extract",
+        "2 tbsp fresh lemon juice",
+        "1 tsp lemon zest",
+        "Whipped cream and extra zest for topping (optional)",
+      ],
+      instructions: [
+        "Preheat oven to 325°F (160°C). Line a mini muffin tin with mini cupcake liners.",
+        "Mix graham cracker crumbs, melted butter, and sugar. Press about a teaspoon into each liner to form the crust.",
+        "In a bowl, beat cream cheese until smooth. Add sugar and beat again.",
+        "Add egg, vanilla, lemon juice, and zest. Beat until well combined.",
+        "Spoon the cheesecake filling over each crust, filling almost to the top.",
+        "Bake for 13–15 minutes or until centers are just set. Let cool, then refrigerate for at least 2 hours.",
+        "Top with whipped cream and lemon zest just before serving.",
+      ],
+    },
+    {
+      slug: "caprese-salad-skewers",
+      title: "Caprese Salad Skewers",
+      description:
+        "Mini skewers with fresh mozzarella, cherry tomatoes, and basil, drizzled with balsamic glaze — a fresh, elegant bite.",
+      image:
+        "https://i.pinimg.com/1200x/f4/7b/49/f47b49ae0a7c46c7a06c50f89b7c849b.jpg",
+      alt: "Caprese skewers with tomato, mozzarella, and basil on toothpicks",
+      ingredients: [
+        "1 pint cherry or grape tomatoes",
+        "1 container mini mozzarella balls (bocconcini)",
+        "Fresh basil leaves",
+        "Toothpicks or short cocktail skewers",
+        "Salt and pepper to taste",
+        "Balsamic glaze (store-bought or homemade)",
+      ],
+      instructions: [
+        "Wash and dry the tomatoes and basil leaves.",
+        "On each toothpick, thread one tomato, one basil leaf (folded if large), and one mozzarella ball.",
+        "Repeat until all ingredients are used.",
+        "Arrange skewers on a platter.",
+        "Drizzle with balsamic glaze and sprinkle with a little salt and pepper.",
+        "Serve chilled or at room temperature.",
+      ],
+    },
+    {
+      slug: "mini-chicken-salad-croissants",
+      title: "Mini Chicken Salad Croissant Sandwiches",
+      description:
+        "Buttery mini croissants filled with creamy chicken salad — the perfect finger food for a classy baby shower.",
+      image:
+        "https://i.pinimg.com/736x/27/4d/42/274d4254fda5507cbf11db5fb547a359.jpg",
+      alt: "Mini croissant sandwiches stuffed with chicken salad on a tray",
+      ingredients: [
+        "1 1/2 cups cooked chicken breast, shredded or diced",
+        "1/3 cup mayonnaise",
+        "1 tbsp Dijon mustard",
+        "1 stalk celery, finely chopped",
+        "2 tbsp red onion, finely chopped",
+        "1 tbsp fresh parsley or dill (optional)",
+        "Salt and pepper to taste",
+        "6–8 mini croissants (or more, depending on size)",
+        "Lettuce leaves (optional)",
+      ],
+      instructions: [
+        "In a medium bowl, combine chicken, mayonnaise, mustard, celery, onion, and herbs. Mix until well coated.",
+        "Season with salt and pepper to taste. Chill for 15–30 minutes if possible.",
+        "Slice mini croissants open (but not all the way through).",
+        "Place a small lettuce leaf inside each croissant, then spoon in the chicken salad.",
+        "Arrange on a serving tray and garnish with a little extra parsley if desired.",
+        "Serve chilled or at room temperature.",
+      ],
+    },
+    {
+      slug: "deviled-eggs-baby-shower",
+      title: "Deviled Eggs with Paprika & Chives",
+      description:
+        "Classic creamy deviled eggs with a sprinkle of paprika and fresh chives — a beautiful and protein-packed party bite.",
+      image:
+        "https://i.pinimg.com/1200x/ca/09/66/ca0966dcc6801b9921531f362a0c13d0.jpg",
+      alt: "Deviled eggs topped with paprika and herbs",
+      ingredients: [
+        "6 hard-boiled eggs, peeled",
+        "2 tbsp mayonnaise",
+        "1 tsp mustard",
+        "Salt and pepper to taste",
+        "Paprika and chopped chives for garnish",
+      ],
+      instructions: [
+        "Slice eggs in half lengthwise and scoop yolks into a bowl.",
+        "Mash yolks with mayo, mustard, salt, and pepper.",
+        "Pipe or spoon mixture back into egg whites.",
+        "Sprinkle with paprika and top with chives.",
+      ],
+    },
+    {
+      slug: "cucumber-tea-sandwiches",
+      title: "Cucumber Tea Sandwiches",
+      description:
+        "Refreshing and dainty finger sandwiches with cream cheese and thin cucumber slices — a timeless baby shower snack.",
+      image:
+        "https://i.pinimg.com/1200x/32/4f/fe/324ffebb75efc7931f1df7845ed8d359.jpg",
+      alt: "Small triangle cucumber sandwiches on a platter",
+      ingredients: [
+        "1 loaf soft white or whole wheat bread",
+        "1/2 cup cream cheese, softened",
+        "1 tbsp chopped fresh dill or mint",
+        "1 cucumber, thinly sliced",
+        "Salt to taste",
+      ],
+      instructions: [
+        "Mix cream cheese with herbs and spread onto bread slices.",
+        "Layer with thin cucumber slices and a pinch of salt.",
+        "Top with another slice of bread, trim crusts, and cut into triangles.",
+        "Serve chilled for best flavour and presentation.",
+      ],
+    },
+    {
+      slug: "savory-puff-pastry-bites",
+      title: "Stuffed Puff Pastry Bites",
+      description:
+        "Golden, flaky pastry squares filled with cream cheese, herbs, and bacon — elegant, warm, and totally irresistible.",
+      image:
+        "https://i.pinimg.com/1200x/ae/86/0e/ae860e7540b4a48522751d12e1a17cd9.jpg",
+      alt: "Pastry bites stuffed with savory filling",
+      ingredients: [
+        "1 sheet puff pastry, thawed",
+        "1/2 cup cream cheese",
+        "1/4 cup cooked crumbled bacon",
+        "1 tsp garlic powder",
+        "1 egg (for egg wash)",
+      ],
+      instructions: [
+        "Preheat oven to 375°F (190°C).",
+        "Cut puff pastry into squares. Add filling: cream cheese + bacon + garlic.",
+        "Fold into pockets or triangles and seal edges.",
+        "Brush with egg wash and bake for 15–20 minutes until golden brown.",
+      ],
+    },
+    {
+      slug: "rice-krispie-pops",
+      title: "Chocolate-Dipped Rice Krispie Pops",
+      description:
+        "Crispy rice squares on sticks dipped in colourful chocolate — fun, sweet, and perfect for themed baby showers.",
+      image:
+        "https://i.pinimg.com/1200x/99/72/4c/99724c57818b51cc5a06f55dce8817aa.jpg",
+      alt: "Rice Krispie treats on sticks dipped in pastel chocolate",
+      ingredients: [
+        "3 tbsp butter",
+        "1 package (10 oz) marshmallows",
+        "6 cups Rice Krispies cereal",
+        "Melted white or milk chocolate for dipping",
+        "Food colouring and sprinkles (optional)",
+        "Lollipop sticks or skewers",
+      ],
+      instructions: [
+        "Melt butter in a pan, add marshmallows and stir until melted.",
+        "Remove from heat, add cereal, mix well, and press into a greased pan.",
+        "Cool, cut into squares, and insert sticks.",
+        "Dip in melted chocolate, decorate with sprinkles, and let set on parchment paper.",
+      ],
+    },
+    {
+      slug: "mac-cheese-bites",
+      title: "Baked Mac & Cheese Bites",
+      description:
+        "Creamy macaroni and cheese baked into crispy bite-sized cups — comforting, cheesy, and perfect finger food.",
+      image:
+        "https://i.pinimg.com/1200x/ea/c6/7e/eac67e3184faf483a4cc454631445e7b.jpg",
+      alt: "Golden mac and cheese bites in a mini muffin tin",
+      ingredients: [
+        "2 cups cooked macaroni",
+        "1 1/2 cups shredded cheddar cheese",
+        "1/2 cup milk",
+        "1 egg",
+        "Salt and pepper to taste",
+        "Breadcrumbs (optional for topping)",
+      ],
+      instructions: [
+        "Preheat oven to 375°F (190°C).",
+        "Mix cooked pasta with cheese, milk, and egg. Season with salt and pepper.",
+        "Spoon into greased mini muffin tins. Sprinkle with breadcrumbs if using.",
+        "Bake for 15–20 minutes until golden and set. Let cool slightly before removing.",
+      ],
+    },
+    {
+      slug: "cheese-cracker-cones",
+      title: "Cheese & Cracker Cones",
+      description:
+        "Savory cones filled with cubes of cheese, crackers, and grapes — a fun, mess-free grazing snack.",
+      image:
+        "https://i.pinimg.com/1200x/26/d3/77/26d3778eb87fcacb7e0b69ec571f4494.jpg",
+      alt: "Paper cones filled with cheese cubes, crackers, and fruit",
+      ingredients: [
+        "Cubes of cheddar, gouda, or brie",
+        "Mini crackers or breadsticks",
+        "Seedless grapes or cherry tomatoes",
+        "Cone-shaped cups or food-safe paper cones",
+      ],
+      instructions: [
+        "Fill each cone with a mix of cheese, crackers, and fruit.",
+        "Arrange upright in a basket or tray for grab-and-go snacks.",
+        "Add a small rosemary sprig or toothpick for garnish.",
+      ],
+    },
+    {
+      slug: "chocolate-mousse-cups",
+      title: "Mini Chocolate Mousse Cups",
+      description:
+        "Velvety chocolate mousse served in tiny dessert cups with whipped cream — a rich, elegant treat for sweet tables.",
+      image:
+        "https://i.pinimg.com/736x/f1/d4/35/f1d4356c4326bf6976672a08cce0f7c9.jpg",
+      alt: "Mini cups of chocolate mousse with whipped topping and chocolate shavings",
+      ingredients: [
+        "1 cup heavy cream",
+        "1/2 cup semi-sweet chocolate chips",
+        "1 tbsp sugar (optional)",
+        "Whipped cream for topping",
+        "Mini plastic dessert cups",
+      ],
+      instructions: [
+        "Heat 1/2 cup cream and pour over chocolate chips. Stir until smooth.",
+        "Let cool slightly, then fold in the other 1/2 cup of whipped cream.",
+        "Pipe or spoon mousse into mini cups. Chill for 1–2 hours.",
+        "Top with whipped cream and chocolate shavings before serving.",
+      ],
+    },
+    {
+      slug: "strawberry-shortcake-shooters",
+      title: "Strawberry Shortcake Shooters",
+      description:
+        "Layered dessert cups with pound cake, whipped cream, and macerated strawberries — beautiful and bite-sized.",
+      image:
+        "https://i.pinimg.com/1200x/c9/ad/d9/c9add9896c52561aed185a2a3f9fdc3f.jpg",
+      alt: "Mini dessert cups with strawberries, cake cubes, and cream",
+      ingredients: [
+        "1 cup diced strawberries",
+        "1 tbsp sugar",
+        "1 cup whipped cream or Cool Whip",
+        "1 cup pound cake, cut into small cubes",
+        "Mini dessert cups or shot glasses",
+      ],
+      instructions: [
+        "Toss strawberries with sugar and let sit for 10 minutes.",
+        "Layer dessert cups: start with cake cubes, add strawberries, then whipped cream.",
+        "Repeat layers if cups are tall.",
+        "Chill until ready to serve. Garnish with mint leaves if desired.",
+      ],
+    },
+    {
+      slug: "mini-chicken-pot-pies",
+      title: "Mini Chicken Pot Pies",
+      description:
+        "Individual-sized flaky pot pies filled with tender chicken and vegetables in a creamy sauce. The perfect warm bite for guests!",
+      image:
+        "https://i.pinimg.com/736x/67/a1/59/67a159ed8785d76e95315cd421ce9517.jpg",
+      alt: "Mini chicken pot pies in muffin tins with golden crust",
+      ingredients: [
+        "1 cup cooked, shredded chicken breast",
+        "1 cup frozen mixed vegetables (peas, carrots, corn)",
+        "1 can cream of chicken soup (or homemade)",
+        "1/4 tsp black pepper",
+        "1 package refrigerated pie crusts or puff pastry",
+        "1 egg (for egg wash)",
+      ],
+      instructions: [
+        "Preheat oven to 375°F (190°C).",
+        "In a bowl, mix shredded chicken, vegetables, cream of chicken soup, and pepper.",
+        "Roll out pie crust and cut into circles large enough to fit muffin tin cups.",
+        "Line each muffin cup with a dough circle, pressing up the sides.",
+        "Spoon in chicken mixture. Top with another dough circle or lattice pattern.",
+        "Brush tops with beaten egg.",
+        "Bake for 20–25 minutes until golden brown. Cool slightly before serving.",
+      ],
+    },
+    {
+  slug: "mediterranean-hummus-cups",
+  title: "Mediterranean Hummus Cups",
+  description: "Mini cups layered with creamy hummus, crunchy vegetables, and Mediterranean toppings — perfect for light snacking.",
+  image: "https://i.pinimg.com/1200x/cf/76/04/cf760492a64f967ed7972bce98db270a.jpg",
+  alt: "Clear cups filled with hummus, cucumbers, tomatoes, and olives",
+  ingredients: [
+    "1 large tub of hummus (plain or flavoured)",
+    "1 cup diced cucumbers",
+    "1 cup diced tomatoes",
+    "1/2 cup chopped kalamata olives",
+    "1/2 cup crumbled feta cheese",
+    "Chopped parsley or mint (optional)",
+    "Mini clear plastic cups or small jars",
+    "Pita chips or veggie sticks for serving"
+  ],
+  instructions: [
+    "Spoon 2–3 tablespoons of hummus into the bottom of each cup.",
+    "Top with a mix of chopped cucumbers, tomatoes, olives, and feta.",
+    "Garnish with fresh herbs if desired.",
+    "Serve with a few pita chips or veggie sticks standing in the cup or on the side."
+  ]
+},
+{
+  slug: "mini-chicken-taco-cups",
+  title: "Mini Chicken Taco Cups",
+  description: "Golden baked tortilla cups filled with spiced shredded chicken, cheese, and fresh toppings — perfect for baby shower bites.",
+  image: "https://i.pinimg.com/1200x/ca/50/af/ca50af048385aa72140912c2c2e47476.jpg",
+  alt: "Mini taco cups in a muffin tin with chicken, cheese, and lettuce",
+  ingredients: [
+    "12 small flour or corn tortillas (cut into smaller rounds)",
+    "2 cups cooked shredded chicken (rotisserie works great)",
+    "1/2 packet taco seasoning",
+    "1/2 cup salsa",
+    "1 cup shredded cheddar or Mexican blend cheese",
+    "Chopped lettuce, cherry tomatoes, sour cream, guacamole (for topping)",
+    "Mini muffin tin"
+  ],
+  instructions: [
+    "Preheat oven to 180°C (350°F).",
+    "Lightly spray a mini muffin tin with cooking spray.",
+    "Press each tortilla round into a muffin cup to form a shell.",
+    "In a bowl, mix shredded chicken with taco seasoning and salsa.",
+    "Spoon chicken mixture into each tortilla cup and top with cheese.",
+    "Bake for 10–12 minutes, or until edges are golden and cheese is melted.",
+    "Top with lettuce, tomato, and a dollop of sour cream or guac before serving."
+  ]
+},
+{
+  slug: "bacon-wrapped-chicken-bites",
+  title: "Bacon-Wrapped Chicken Bites",
+  description: "Tender chicken chunks wrapped in smoky bacon, baked to crispy perfection, and glazed with a sweet-spicy sauce.",
+  image: "https://i.pinimg.com/736x/08/3c/73/083c73e7c466b8f1a223450ab7f2d36b.jpg",
+  alt: "Crispy bacon-wrapped chicken bites on toothpicks with glaze",
+  ingredients: [
+    "2 large chicken breasts, cut into bite-sized chunks",
+    "10 slices of streaky bacon, cut in halves",
+    "1/3 cup brown sugar",
+    "1 tbsp smoked paprika",
+    "1/2 tsp chili powder (optional for heat)",
+    "Toothpicks"
+  ],
+  instructions: [
+    "Preheat oven to 200°C (400°F). Line a baking sheet with foil and place a rack on top.",
+    "In a bowl, combine brown sugar, paprika, and chili powder.",
+    "Wrap each chicken piece with a half slice of bacon and secure with a toothpick.",
+    "Roll the bacon-wrapped chicken in the sugar-spice mix and place on the rack.",
+    "Bake for 25–30 minutes or until bacon is crispy and chicken is cooked through.",
+    "Let rest 5 minutes before serving warm."
+  ]
+},
+{
+  slug: "shrimp-cocktail-shooters",
+  title: "Shrimp Cocktail Shooters",
+  description: "Chilled jumbo shrimp served in individual shot glasses with tangy cocktail sauce and a lemon wedge — the perfect upscale appetiser.",
+  image: "https://i.pinimg.com/1200x/d4/eb/8a/d4eb8abf1773d380458273b8af40302e.jpg",
+  alt: "Shrimp cocktail shooters with lemon wedges in mini clear cups",
+  ingredients: [
+    "24 jumbo shrimp, peeled and deveined, tails on",
+    "1 tbsp salt (for boiling water)",
+    "1 lemon, halved (for boiling water)",
+    "1 cup cocktail sauce (store-bought or homemade)",
+    "Lemon wedges (for garnish)",
+    "Fresh parsley (optional, for garnish)",
+    "24 shot glasses or mini cups"
+  ],
+  instructions: [
+    "Fill a large pot with water, add salt and lemon halves, and bring to a boil.",
+    "Add shrimp and cook for 2–3 minutes until pink and opaque. Do not overcook.",
+    "Drain and immediately transfer shrimp to an ice bath to chill.",
+    "Once cooled, pat shrimp dry with paper towels.",
+    "Add 1 tbsp of cocktail sauce to each shot glass.",
+    "Hang one shrimp over the rim of each glass. Garnish with a lemon wedge and parsley if desired.",
+    "Chill until ready to serve."
+  ]
+}
+
+
+
+  ];
+
+  // Get elements
+  const foodCardsContainer = document.getElementById("food-cards-container");
+  const recipeModal = document.getElementById("recipe-modal");
+  const closeModalButton = document.getElementById("close-modal");
+  const recipeTitle = document.getElementById("recipe-title");
+  const recipeDescription = document.getElementById("recipe-description");
+  const recipeImage = document.getElementById("recipe-image");
+  const recipeIngredients = document.getElementById("recipe-ingredients");
+  const recipeInstructions = document.getElementById("recipe-instructions");
+
+  // Function to create a food card HTML
+  function createFoodCard(food) {
+    const cardHtml = `
+            <div class="w-full max-w-sm rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-neutral-light border border-soft-pink cursor-pointer food-card" data-slug="${food.slug}">
+                <div class="relative w-full h-48">
+                    <img src="${food.image}" alt="${food.alt}" class="w-full h-full object-cover rounded-t-xl">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-xl font-semibold text-deep-pink mb-2">${food.title}</h3>
+                    <p class="text-text-light text-sm">${food.description}</p>
+                </div>
+            </div>
+        `;
+    return cardHtml;
+  }
+
+  // Populate food cards
+  recipes.forEach((food) => {
+    foodCardsContainer.innerHTML += createFoodCard(food);
+  });
+
+  // Add event listeners to food cards
+  document.querySelectorAll(".food-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const slug = card.dataset.slug;
+      const recipe = recipes.find((r) => r.slug === slug);
+
+      if (recipe) {
+        recipeTitle.textContent = recipe.title;
+        recipeDescription.textContent = recipe.description;
+        recipeImage.src = recipe.image;
+        recipeImage.alt = recipe.alt;
+
+        // Clear previous ingredients and instructions
+        recipeIngredients.innerHTML = "";
+        recipeInstructions.innerHTML = "";
+
+        // Populate ingredients
+        recipe.ingredients.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          recipeIngredients.appendChild(li);
+        });
+
+        // Populate instructions
+        recipe.instructions.forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          recipeInstructions.appendChild(li);
+        });
+
+        recipeModal.classList.remove("hidden");
+        document.body.style.overflow = "hidden"; // Prevent scrolling body when modal is open
+      }
+    });
+  });
+
+  // Close modal functionality
+  closeModalButton.addEventListener("click", () => {
+    recipeModal.classList.add("hidden");
+    document.body.style.overflow = ""; // Restore body scrolling
+  });
+
+  // Close modal when clicking outside of it
+  recipeModal.addEventListener("click", (e) => {
+    if (e.target === recipeModal) {
+      recipeModal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+  });
+});

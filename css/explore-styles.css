@@ -2,7 +2,7 @@
 body {
   font-family: "Poppins", sans-serif;
   line-height: 1.6;
-  color: #333;
+  color: #ff9900;
 }
 
 .container {
@@ -39,10 +39,17 @@ body {
   font-weight: 700;
 }
 .logo ul li a  {
-  color:black;
+  color:rgb(255, 255, 255);
   text-decoration: none;
   text-align: center;
-  display: flex;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s;
+  border-radius: 6px;
+  background: #ff6b35;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
 }
 
 .nav-menu {

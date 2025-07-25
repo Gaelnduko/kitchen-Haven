@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Haven Baby Shower page</title>
+   
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style-baby.css">
+</head>
+<body class="bg-baby-pink text-text-dark font-sans antialiased">
+
+
+    <section class="relative w-full h-[60vh] flex items-center justify-center text-center overflow-hidden">
+        <img src="https://i.pinimg.com/1200x/84/44/37/844437e813d5baf79ecaa86e6e24e55b.jpg" alt="Elegant baby shower background" class="absolute inset-0 w-full h-full object-cover z-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-baby-pink/80 to-soft-pink/60 z-10"></div>
+        <div class="relative z-20 p-4 max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-accent-pink drop-shadow-lg mb-4 leading-tight">
+                Celebrating a New Beginning
+            </h1>
+            <p class="text-xl md:text-2xl text-text-dark font-medium mb-8 drop-shadow-md">
+                Join us in showering love and joy for our little one on the way.
+            </p>
+            <a href="html/Explore-recipies.html" class="inline-block bg-deep-pink hover:bg-accent-pink text-white text-lg px-8 py-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+        We are delighted to share our culinary delights with you! 
+            </a>
+        </div>
+    </section>
+
+    <main class="container mx-auto py-16 px-4 sm:px-6 lg:px-8">
+     
+        <section class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-deep-pink mb-4">Welcome to Our Celebration</h2>
+            <p class="text-lg text-text-light max-w-3xl mx-auto">
+                We are thrilled to invite you to a joyous occasion as we prepare to welcome our little bundle of joy.
+                Explore the delightful culinary offerings prepared for this special day.
+            </p>
+        </section>
+
+   
+        <section id="food-selection" class="mb-16">
+            <h2 class="text-4xl font-bold text-deep-pink text-center mb-10">Our Elegant Food Selection</h2>
+            <div id="food-cards-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+           
+            </div>
+        </section>
+
+      
+        <section class="py-16 px-4 sm:px-6 lg:px-8 bg-soft-pink text-center rounded-xl shadow-lg border border-baby-pink">
+            <h2 class="text-4xl font-bold text-deep-pink mb-8">Event Details</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="flex flex-col items-center p-6 bg-neutral-light rounded-xl shadow-md border border-baby-pink">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-medium-pink mb-4"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                    <h3 class="text-xl font-semibold text-text-dark mb-2">Date</h3>
+                    <p class="text-lg text-text-light">Saturday, October 26, 2024</p>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-neutral-light rounded-xl shadow-md border border-baby-pink">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-medium-pink mb-4"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <h3 class="text-xl font-semibold text-text-dark mb-2">Time</h3>
+                    <p class="text-lg text-text-light">2:00 PM - 5:00 PM</p>
+                </div>
+                <div class="flex flex-col items-center p-6 bg-neutral-light rounded-xl shadow-md border border-baby-pink">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-medium-pink mb-4"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <h3 class="text-xl font-semibold text-text-dark mb-2">Location</h3>
+                    <p class="text-lg text-text-light">The Grand Ballroom, City Center</p>
+                </div>
+            </div>
+            <div class="mt-12">
+                <a href="#" class="inline-block bg-accent-pink hover:bg-deep-pink text-white text-lg px-10 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105">
+                    RSVP Now
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-inner py-8 px-4 sm:px-6 lg:px-8 text-center text-text-light text-sm border-t border-soft-pink">
+        <p>&copy; <span id="current-year"></span> Baby Shower Celebration. All rights reserved.</p>
+        <p class="mt-2">Designed with love and joy.</p>
+    </footer>
+
+    <!-- Recipe Modal -->
+    <div id="recipe-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-neutral-light rounded-xl shadow-xl p-8 max-w-4xl w-full border border-soft-pink relative overflow-y-auto max-h-[90vh]">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">
+                &times;
+            </button>
+            <h1 id="recipe-title" class="text-5xl font-extrabold text-accent-pink mb-6 text-center"></h1>
+            <p id="recipe-description" class="text-lg text-text-light mb-8 text-center"></p>
+
+            <div class="relative w-full h-80 rounded-lg overflow-hidden mb-8 shadow-md">
+                <img id="recipe-image" src="/placeholder.svg" alt="" class="w-full h-full object-cover rounded-lg">
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-deep-pink mb-4">Ingredients</h2>
+                    <ul id="recipe-ingredients" class="list-disc list-inside text-text-dark space-y-2"></ul>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-deep-pink mb-4">Instructions</h2>
+                    <ol id="recipe-instructions" class="list-decimal list-inside text-text-dark space-y-2"></ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/script-baby"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
