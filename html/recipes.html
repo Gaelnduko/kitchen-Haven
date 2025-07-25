@@ -2,13 +2,177 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<div>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="section-1">
-        <h1> What </h1>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecipeShare - Share Your Culinary Creations</title>
 
-    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50">
+ 
+    <header class="px-4 lg:px-6 h-14 flex items-center justify-between bg-white shadow-sm">
+        <a class="flex items-center justify-center" href="#">
+            <span class="text-xl font-bold text-gray-800">RecipeShare</span>
+            <span class="sr-only">RecipeShare Home <a href="html/Explore-recipies.html"></a></span>
+        </a>
+        <nav class="hidden lg:flex gap-4 sm:gap-6">
+            <a class="text-sm font-medium hover:underline underline-offset-4 text-gray-700" href="#">Home</a>
+            <a class="text-sm font-medium hover:underline underline-offset-4 text-gray-700" href="#">Recipes</a>
+            <a class="text-sm font-medium hover:underline underline-offset-4 text-gray-700" href="#">Share</a>
+            <a class="text-sm font-medium hover:underline underline-offset-4 text-gray-700" href="#">About</a>
+        </nav>
+        <button id="mobile-menu-button" class="lg:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-label="Toggle navigation menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+        </button>
+        <div id="mobile-menu" class="hidden absolute top-14 left-0 w-full bg-white shadow-md lg:hidden z-50">
+            <nav class="flex flex-col p-4 gap-2">
+                <a class="text-sm font-medium hover:underline underline-offset-4 text-gray-700 py-2" href="#">Home</a>
+                <a class="text-sm font-medium hover:underline underline-offset-4 text-gray-700 py-2" href="#">Recipes</a>
+                <a class="text-sm font-medium hover:underline underline-offset-4 text-gray-700 py-2" href="#">Share</a>
+                <a class="text-sm font-medium hover:underline underline-offset-4 text-gray-700 py-2" href="#">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-1">
+
+        <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-r from-gray-50 to-gray-100">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px] items-center">
+                    <div class="flex flex-col justify-center space-y-4">
+                        <div class="space-y-2">
+                            <h1 class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl text-gray-900">
+                                Share Your Culinary Creations with the World
+                            </h1>
+                            <p class="max-w-[600px] text-gray-600 md:text-xl">
+                                Discover, share, and connect with a vibrant community of food lovers. Your next favorite recipe is just
+                                a click away.
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-2 min-[400px]:flex-row">
+                            <a class="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50" href="/html/recipe-share.html">Share Your Recipe</a>
+                            <a class="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50" href="#">Explore Recipes</a>
+                        </div>
+                    </div>
+                    <img
+                        alt="Delicious food spread on a table"
+                        class="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
+                        height="400"
+                        src="https://i.pinimg.com/736x/46/fc/cb/46fccbdc1f173b0d2a03a9728f809001.jpg"
+                        width="700"
+                    />
+                </div>
+            </div>
+        </section>
+
+      
+        <section class="w-full py-12 md:py-24 lg:py-32 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                    <div class="space-y-2">
+                        <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900">Why Share Your Recipes?</h2>
+                        <p class="max-w-[900px] text-gray-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                            Join our community and unlock a world of culinary possibilities.
+                        </p>
+                    </div>
+                </div>
+                <div class="mx-auto grid max-w-5xl items-start gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
+                    <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-gray-700">
+                                <path d="M3 2v6h6"></path>
+                                <path d="M3 13v6h6"></path>
+                                <path d="M15 2v6h6"></path>
+                                <path d="M15 13v6h6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Showcase Your Skills</h3>
+                        <p class="text-gray-600">Share your unique recipes and culinary expertise with a global audience.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-gray-700">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Connect with Foodies</h3>
+                        <p class="text-gray-600">
+                            Engage with other passionate cooks, get feedback, and build your culinary network.
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-10 w-10 text-gray-700">
+                                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.5 1.5 3.5.8.8 1.3 1.5 1.5 2.5"></path>
+                                <path d="M9 18h6"></path>
+                                <path d="M10 22h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Discover New Ideas</h3>
+                        <p class="text-gray-600">Explore an endless variety of recipes from home cooks around the world.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
+            <div class="container mx-auto grid items-center justify-center gap-4 px-4 text-center md:px-6">
+                <div class="space-y-3">
+                    <h2 class="text-3xl font-bold tracking-tighter md:text-4xl text-gray-900">
+                        Ready to Share Your Masterpiece?
+                    </h2>
+                    <p class="mx-auto max-w-[600px] text-gray-600 md:text-xl lg:text-base xl:text-xl">
+                        Join RecipeShare today and start inspiring others with your delicious creations.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2 min-[400px]:flex-row justify-center">
+                    <a class="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50" href="#">Get Started</a>
+                    <a class="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50" href="#">Learn More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+   
+    <footer class="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t bg-white text-gray-600">
+        <p class="text-xs">&copy; 2024 RecipeShare. All rights reserved.</p>
+        <nav class="sm:ml-auto flex gap-4 sm:gap-6">
+            <a class="text-xs hover:underline underline-offset-4" href="#">Terms of Service</a>
+            <a class="text-xs hover:underline underline-offset-4" href="#">Privacy</a>
+            <a class="text-xs hover:underline underline-offset-4" href="#">Contact</a>
+        </nav>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+            
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
