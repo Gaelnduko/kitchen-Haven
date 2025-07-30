@@ -1,4 +1,4 @@
-// Recipe data
+
 const recipes = [
   {
     id: 1,

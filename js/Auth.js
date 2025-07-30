@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
@@ -32,3 +32,20 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
     message.textContent = `Error: ${error.message}`;
   }
 });
+
+function login() {
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  if (user && pass) {
+    document.getElementById("login-modal").style.display = "none";
+    document.getElementById("main-content").classList.remove("blurred");
+    document.body.style.overflow = "auto";
+  } else {
+    alert("Please enter both username and password.");
+  }
+}
+
+window.onload = () => {
+  document.getElementById("username").focus();
+};
